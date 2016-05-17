@@ -47,11 +47,13 @@
     "cookie": "^0.2.3",
     "express": "^4.13.4",
     "jade": "^0.27.7",
-    "lodash": "^4.11.2",
+    "lodash": "^4.12.0",
     "mongodb": "^2.1.18",
     "puid": "^1.0.5",
     "read-config": "^2.0.0",
     "shortid": "^2.2.6",
-    "socket.io": "^0.9.13"
+    "socket.io": "^0.9.13",
+    "underscore": "^1.8.3",
+    "xml2js": "^0.4.16"
   }
 }
