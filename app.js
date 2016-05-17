@@ -35,20 +35,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 config = readConfig('./config.json');
 
 var input;
-// input = 'pi';
+input = 'pi';
 // input = '18782 + 18782';
-input = 'Fibonacci[10]';
+// input = 'Fibonacci[10]';
 
 var url = `http://api.wolframalpha.com/v2/query?input=${encodeURIComponent(input)}&appid=${config.appid}`;
 
 request.get(url, function (err, res, body) {
   if (!err && res.statusCode == 200) {
-    parseString(body, function (err, result) {
-      result.queryresult.pod.forEach((elm) => {
+    parseString(body, function (err, res) {
+      var decimalApproximation;
+      var result;
+      res.queryresult.pod.forEach((elm) => {
+        if(elm.$.id === 'DecimalApproximation') {
+          decimalApproximation = elm.subpod[0].plaintext[0];
+        }
         if(elm.$.id === 'Result') {
-          console.log(elm.subpod[0].plaintext[0]);
+          result = elm.subpod[0].plaintext[0];
         }
       });
+
+      console.log(result || decimalApproximation);
     });
   }
 });
