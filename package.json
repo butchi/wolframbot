@@ -50,6 +50,7 @@
     "lodash": "^4.11.2",
     "mongodb": "^2.1.18",
     "puid": "^1.0.5",
+    "read-config": "^2.0.0",
     "shortid": "^2.2.6",
     "socket.io": "^0.9.13"
   }
